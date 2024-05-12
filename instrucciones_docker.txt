@@ -1,0 +1,23 @@
+CON DOCKER ACTIVADO
+
+1.CMD
+Ubicarse con la consola del editor o cualquier otro terminal en la raíz o directorio
+del proyecto a dockerizar, principalmente donde está el archivo docker-compose.yml
+
+2.SUBIR A DOCKER EL PROYECTO
+docker-compose up
+
+3.EN CASO DE QUE TOQUE BAJARLO POR UNA ACTUALIZACIÓN
+docker-compose down -v
+
+4.VOLVER A SUBIR PROYECTO CON LAS ACTUALIZACIONES
+docker-compose up -d --build
+
+5.VER CONTENEDORES CORRIENDO
+docker ps
+
+6.EVIDENCIAR CONTENEDORES EN NAVEGADOR
+En la barra de navegación poner localhost y el puerto según el servicio:
+
+Servicio Flask: localhost:5000
+Servicio Phpmyadmin: localhost:8080
