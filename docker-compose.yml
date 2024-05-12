@@ -1,0 +1,54 @@
+version: '3'
+services:
+  db:
+    image: mysql:8.0.37
+    container_name: db
+    restart: unless-stopped
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: "1234"
+      MYSQL_DATABASE: "municipios"      
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./db_data/municipios.sql:/docker-entrypoint-initdb.d/municipios.sql
+    networks:
+      - wpsite
+  web:
+    build: .
+    container_name: web
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./app:/app
+    environment:
+      FLASK_APP: "app.py"
+      FLASK_ENV: "development"
+      MYSQL_HOST: "db"
+      MYSQL_USER: "root"
+      MYSQL_PASSWORD: "1234"
+      MYSQL_DB: "municipios"
+    depends_on:
+      - db
+    networks:
+      - wpsite
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    restart: always
+    ports:
+      - '8080:80'
+    environment:
+      PMA_HOST: "db"
+      PMA_USER: "root"
+      PMA_PASSWORD: "1234"
+    networks:
+      - wpsite
+
+
+networks:
+  wpsite:
+
+volumes:
+  db_data:

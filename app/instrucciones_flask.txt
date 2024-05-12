@@ -1,0 +1,17 @@
+¡NO BORRAR EL ARCHIVO requirements.txt!
+
+Para desarrollar los siguientes pasos, 
+se debe ubicar el editor de código o la consola en la raíz del proyecto
+
+1. En entorno python instalar virtualizador
+python -m venv env
+
+2.Ingresar al virtualizador
+env\Scripts\activate
+
+3.Instalar requerimientos
+pip install -r requirements.txt
+
+4.Arrancar el servidor flask
+    opcion 1: python app.py
+    opción 2: flask run
