@@ -1,0 +1,23 @@
+# Virtual environments
+venv/
+env/
+
+# Python bytecode
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Logs and outputs
+*.log
+*.out
+*.err
+
+# IDE specific
+.idea/
+.vscode/
+
+# Cache files
+pip-log.txt
+pip-wheel-metadata/
+pytest_cache/
